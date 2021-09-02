@@ -1,0 +1,95 @@
+<html>
+
+<head>
+    <meta content="utf-8" http-equiv="encoding">
+    <title>Air crash investigation</title>
+    <script src="RadarChart.js"></script>
+    <script src="liquidFillGauge.js"></script>
+    <style>
+        .arcs path {
+            stroke-width: 3px;
+            stroke: crimson;
+            pointer-events: none;
+            fill: none;
+        }
+
+        div.tooltip {
+            position: absolute;
+            text-align: center;
+            padding: 2px;
+            font: 12px sans-serif;
+            background: lightgreen;
+            border: 0px;
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        #chart {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+        
+        #instr {
+            width: 800px;
+            text-align: left;
+        }
+    </style>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+</head>
+
+
+<body bgcolor="#E89772">
+    <br>
+    <h1 align="center">Air crash investigation</h1>
+    <br>
+    <table id="maintable" align="center">
+        <tr>
+            <td width=80%>
+                <table align="center" bgcolor="#CFD8DC" frame="box">
+                    <tr>
+                        <td align="center">
+                            <div id="map"></div><svg style='background-color: lightblue'></svg></td>
+                        <td align="center">
+                            <table>
+                                <tr>
+                                    <div id="surv"></div><svg id="fillgauge" width="300" height="250"></svg>
+                                </tr>
+                                <tr>
+                                    <div class="big radarChart" id="chart-radar"></div>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td id = "oper">
+                <table align="right">
+                    <tr>
+                        <div id="yearrange"></div>
+                    </tr>
+                    <tr>
+                        <input checked="true" type="checkbox" id="pilot" class="chk">Pilot Error</input><br/>
+                        <input checked="true" type="checkbox" id="sabotage" class="chk">Sabotage</input><br/>
+                        <input checked="true" type="checkbox" id="unknown" class="chk">Unknown</input><br/>
+                        <input checked="true" type="checkbox" id="terrain" class="chk">Terrain</input><br/>
+                        <input checked="true" type="checkbox" id="weather" class="chk">Weather</input><br/>
+                        <input checked="true" type="checkbox" id="human" class="chk">Human Error</input><br/>
+                        <input checked="true" type="checkbox" id="mechanical" class="chk">Mechanical Error</input><br/>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <br><br>
+    <p>
+        <b>Data sets used are:</b><br>
+        https://opendata.socrata.com/Government/Airplane-Crashes-and-Fatalities-Since-1908/q2te-8cvq<br>
+        http://www.enchantedlearning.com/geography/continents/Land.shtml<br>
+        https://www.kaggle.com/traceyvanp/airlinefleet<br>
+        https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat
+    </p>
+    <script type="text/javascript" src="viz.js"></script>
+</body>
+
+</html>
